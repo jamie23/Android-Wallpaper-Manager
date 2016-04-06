@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.util.Log;
+import android.util.LruCache;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,6 +21,8 @@ public class WallpaperDownloader<T> extends HandlerThread {
     private static final int MESSAGE_DOWNLOAD = 0;
     private Handler mRequestHandler;
     private ConcurrentMap<T, String> mRequestMap = new ConcurrentHashMap<>();
+    private int cacheSize = 4*1024*1024; //4 megabytes
+    private LruCache bitmapCache = new LruCache(cacheSize);
 
     //Main thread handler (UI)
     private Handler mResponseHandler;
@@ -69,6 +72,7 @@ public class WallpaperDownloader<T> extends HandlerThread {
     }
 
     private void handleRequest(final T target){
+        final Bitmap bitmap;
         try{
             final String url = mRequestMap.get(target);
 
@@ -76,19 +80,24 @@ public class WallpaperDownloader<T> extends HandlerThread {
                 return;
             }
 
-            byte[] bitmapBytes = new BingImageFetcher().getUrlBytes2(url);
-            final Bitmap bitmap = BitmapFactory
-                    .decodeByteArray(bitmapBytes,0,bitmapBytes.length);
-            Log.i(TAG, "Bitmap created for " + mRequestMap.get(target));
+            if(bitmapCache.get(url)==null){
+                byte[] bitmapBytes = new BingImageFetcher().getUrlBytes2(url);
+                bitmap = BitmapFactory
+                        .decodeByteArray(bitmapBytes,0,bitmapBytes.length);
+                Log.i(TAG, "Bitmap created for " + mRequestMap.get(target));
+                bitmapCache.put(url,bitmap);
+            }else{
+                bitmap = (Bitmap)bitmapCache.get(url);
+            }
 
-            mResponseHandler.post(new Runnable(){
-                public void run(){
-                    if(mRequestMap.get(target) != url){
+            mResponseHandler.post(new Runnable() {
+                public void run() {
+                    if (mRequestMap.get(target) != url) {
                         return;
                     }
 
                     mRequestMap.remove(target);
-                    mWallpaperDownloadListener.onWallpaperDownloadListener(target,bitmap);
+                    mWallpaperDownloadListener.onWallpaperDownloadListener(target, bitmap);
                 }
 
             });
