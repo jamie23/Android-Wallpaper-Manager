@@ -22,8 +22,6 @@ import java.util.List;
 public class BingImageFetcher {
     private static final String API_KEY = APIKey.API_KEY;
     private static final String TAG = "BingImageFetcher";
-    private static final String URL = "https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=";
-    private static final String USER_NAME = "";
 
     public byte[] getUrlBytes(String urlSpec) throws IOException{
         URL url = new URL(urlSpec);
@@ -84,10 +82,10 @@ public class BingImageFetcher {
         return new String(getUrlBytes(urlSpec));
     }
 
-    public List<WallpaperItem> fetchItems(){
+    public List<WallpaperItem> fetchItems(String searchQuery){
         List<WallpaperItem> items = new ArrayList<>();
         try{
-            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27manchester%27&ImageFilters=%27Size%3AWidth%3A1920%2BSize%3AHeight%3A1080%27&$format=json").toString();
+            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + searchQuery + "%27&ImageFilters=%27Size%3AWidth%3A1920%2BSize%3AHeight%3A1080%27&$format=json").toString();
             String jsonString = getUrlString(url);
             Log.i(TAG, "Received JSON: " + jsonString);
             JSONObject jsonBody = new JSONObject(jsonString);

@@ -9,8 +9,12 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,6 +30,7 @@ public class WallpaperFragment extends Fragment {
     private RecyclerView mWallpaperRecyclerView;
     private List<WallpaperItem> mItems = new ArrayList<>();
     private WallpaperDownloader<WallpaperHolder> mWallpaperDownloader;
+    private String searchQuery = "Moon";
 
     public static WallpaperFragment newInstance() {
         return new WallpaperFragment();
@@ -36,7 +41,7 @@ public class WallpaperFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
-        new FetchItemsTask().execute();
+        updateWallpapers();
 
         /*
             Passing a handler through to downloader so we can update
@@ -71,6 +76,35 @@ public class WallpaperFragment extends Fragment {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+        super.onCreateOptionsMenu(menu, menuInflater);
+        menuInflater.inflate(R.menu.fragment_wallpaper_gallery, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.menu_item_search);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                Log.d(TAG, "QueryTextSubmit: " + s);
+                searchQuery = s;
+                updateWallpapers();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                Log.d(TAG, "QueryTextChange: " + s);
+                return false;
+            }
+        });
+    }
+
+    private void updateWallpapers(){
+        new FetchItemsTask().execute(searchQuery);
+    }
+
+    @Override
     public void onDestroy(){
         super.onDestroy();
         mWallpaperDownloader.quit();
@@ -83,10 +117,13 @@ public class WallpaperFragment extends Fragment {
         mWallpaperDownloader.clearQueue();
     }
 
-    private class FetchItemsTask extends AsyncTask<Void, Void, List<WallpaperItem>> {
+    private class FetchItemsTask extends AsyncTask<String, Void, List<WallpaperItem>> {
+        private String searchQuery;
+
         @Override
-        protected List<WallpaperItem> doInBackground(Void... params) {
-            return new BingImageFetcher().fetchItems();
+        protected List<WallpaperItem> doInBackground(String... params) {
+            searchQuery = params[0];
+            return new BingImageFetcher().fetchItems(searchQuery);
         }
 
         @Override

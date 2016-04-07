@@ -21,7 +21,7 @@ public class WallpaperDownloader<T> extends HandlerThread {
     private static final int MESSAGE_DOWNLOAD = 0;
     private Handler mRequestHandler;
     private ConcurrentMap<T, String> mRequestMap = new ConcurrentHashMap<>();
-    private int cacheSize = 4*1024*1024; //4 megabytes
+    private int cacheSize = 1024*1024; //4 megabytes
     private LruCache bitmapCache = new LruCache(cacheSize);
 
     //Main thread handler (UI)
