@@ -23,14 +23,18 @@ public class BingImageFetcher {
     private static final String API_KEY = APIKey.API_KEY;
     private static final String TAG = "BingImageFetcher";
 
-    public byte[] getUrlBytes(String urlSpec) throws IOException{
+    public byte[] getUrlBytes(String urlSpec, boolean bingEncoding) throws IOException{
         URL url = new URL(urlSpec);
         HttpURLConnection connection = (HttpURLConnection)url.openConnection();
         String userpass = "" + ":" + API_KEY;
-        byte[] encodedBase64 = Base64.encode(userpass.getBytes(),Base64.NO_WRAP);
-        String accKeyEncoded = new String(encodedBase64);
-        String basicAuthorisation = "Basic " + accKeyEncoded;
-        connection.setRequestProperty("Authorization", basicAuthorisation);
+
+        //Bing requires encoding of APIKey on the connection
+        if(bingEncoding){
+            byte[] encodedBase64 = Base64.encode(userpass.getBytes(),Base64.NO_WRAP);
+            String accKeyEncoded = new String(encodedBase64);
+            String basicAuthorisation = "Basic " + accKeyEncoded;
+            connection.setRequestProperty("Authorization", basicAuthorisation);
+        }
 
         try{
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -51,42 +55,15 @@ public class BingImageFetcher {
         } finally{
             connection.disconnect();
         }
-    }
-
-    public byte[] getUrlBytes2(String urlSpec) throws IOException{
-        URL url = new URL(urlSpec);
-        HttpURLConnection connection = (HttpURLConnection)url.openConnection();
-        try{
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND){
-                //The file has been deleted from the file server
-
-            }
-            InputStream in = connection.getInputStream();
-
-            int bytesRead = 0;
-            byte[] buffer = new byte[1024];
-            while((bytesRead = in.read(buffer)) > 0){
-                out.write(buffer, 0, bytesRead);
-            }
-            out.close();
-            return out.toByteArray();
-        } finally{
-            connection.disconnect();
-        }
-    }
-
-
-    public String getUrlString(String urlSpec) throws IOException{
-        return new String(getUrlBytes(urlSpec));
     }
 
     public List<WallpaperItem> fetchItems(String searchQuery){
         List<WallpaperItem> items = new ArrayList<>();
         try{
             String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + searchQuery + "%27&ImageFilters=%27Size%3AWidth%3A1920%2BSize%3AHeight%3A1080%27&$format=json").toString();
-            String jsonString = getUrlString(url);
+
+            //getUrlBytes returns bytes which can be casted to String to see the JSON result
+            String jsonString =  new String(getUrlBytes(url, true));
             Log.i(TAG, "Received JSON: " + jsonString);
             JSONObject jsonBody = new JSONObject(jsonString);
             parseItems(items, jsonBody);

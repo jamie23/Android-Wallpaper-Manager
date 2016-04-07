@@ -81,7 +81,7 @@ public class WallpaperDownloader<T> extends HandlerThread {
             }
 
             if(bitmapCache.get(url)==null){
-                byte[] bitmapBytes = new BingImageFetcher().getUrlBytes2(url);
+                byte[] bitmapBytes = new BingImageFetcher().getUrlBytes(url, false);
                 bitmap = BitmapFactory
                         .decodeByteArray(bitmapBytes,0,bitmapBytes.length);
                 Log.i(TAG, "Bitmap created for " + mRequestMap.get(target));
