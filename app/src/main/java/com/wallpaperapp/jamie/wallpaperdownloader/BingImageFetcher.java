@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Jamie on 02/03/2016.
  */
 public class BingImageFetcher {
-    private static final String API_KEY = APIKey.API_Key;
+    private static final String API_KEY = APIKey.API_KEY;
     private static final String TAG = "BingImageFetcher";
 
     public byte[] getUrlBytes(String urlSpec, boolean bingEncoding) throws IOException{
@@ -40,8 +40,7 @@ public class BingImageFetcher {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
 
             if(connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND){
-                //The file has been deleted from the file server
-
+                Log.d(TAG, "The image has been deleted from this URL");
             }
             InputStream in = connection.getInputStream();
 
