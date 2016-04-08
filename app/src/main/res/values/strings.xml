@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">WallpaperDownloader</string>
     <string name="search">Search Wallpapers</string>
+    <string name="set_wallpaper">Set as Wallpaper</string>
 </resources>
