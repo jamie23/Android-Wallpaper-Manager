@@ -1,5 +1,6 @@
 package com.wallpaperapp.jamie.wallpaperdownloader;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -133,16 +134,30 @@ public class WallpaperFragment extends Fragment {
         }
     }
 
-    private class WallpaperHolder extends RecyclerView.ViewHolder{
+    private class WallpaperHolder extends RecyclerView.ViewHolder
+        implements View.OnClickListener{
+        private WallpaperItem wallpaperSelected;
+
         private ImageView mWallpaperImageView;
 
         public WallpaperHolder(View itemView){
             super(itemView);
             mWallpaperImageView = (ImageView) itemView.findViewById(R.id.fragment_wallpaper_image_view);
+            itemView.setOnClickListener(this);
         }
 
         public void bindDrawable(Drawable drawable){
             mWallpaperImageView.setImageDrawable(drawable);
+        }
+
+        public void bindWallpaperItem(WallpaperItem wallpaperItem){
+            wallpaperSelected = wallpaperItem;
+        }
+
+        @Override
+        public void onClick(View v){
+            Intent i = WallpaperPageActivity.newIntent(getActivity(), wallpaperSelected.getURI());
+            startActivity(i);
         }
     }
 
@@ -163,7 +178,9 @@ public class WallpaperFragment extends Fragment {
         @Override
         public void onBindViewHolder(WallpaperHolder photoHolder, int position) {
             WallpaperItem wallpaperItem = mWallpaperItems.get(position);
+            photoHolder.bindWallpaperItem(wallpaperItem);
             mWallpaperDownloader.queueWallpaper(photoHolder,wallpaperItem.getThumbnailURL());
+
         }
 
         @Override

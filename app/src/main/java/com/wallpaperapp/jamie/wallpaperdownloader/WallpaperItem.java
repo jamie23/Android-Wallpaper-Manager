@@ -1,5 +1,7 @@
 package com.wallpaperapp.jamie.wallpaperdownloader;
 
+import android.net.Uri;
+
 /**
  * Created by jamie on 3/4/2016.
  */
@@ -23,6 +25,10 @@ public class WallpaperItem {
         this.mUrl = mUrl;
     }
 
+    public Uri getURI(){
+        Uri uri = Uri.parse(getUrl());
+        return uri;
+    }
     @Override
     public String toString(){
         return mUrl;
