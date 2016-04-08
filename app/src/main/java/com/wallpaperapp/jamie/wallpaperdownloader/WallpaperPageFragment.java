@@ -1,5 +1,6 @@
 package com.wallpaperapp.jamie.wallpaperdownloader;
 
+import android.app.WallpaperManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.io.IOException;
@@ -24,6 +26,7 @@ public class WallpaperPageFragment extends Fragment{
     private Uri mUri;
     private ImageView wallpaperView;
     private Bitmap wallpaperBitmap;
+    private Button setWallpaperButton;
 
     public static WallpaperPageFragment newInstance(Uri uri){
         Bundle args = new Bundle();
@@ -47,6 +50,19 @@ public class WallpaperPageFragment extends Fragment{
                              Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_wallpaper_page, container, false);
         wallpaperView = (ImageView) v.findViewById(R.id.image_wallpaper);
+
+        setWallpaperButton = (Button) v.findViewById(R.id.btn_set_wallpaper);
+        setWallpaperButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
+                try{
+                    wallpaperManager.setBitmap(wallpaperBitmap);
+                }catch(IOException ioe){
+                    Log.e(TAG, "Error setting the wallpaper", ioe);
+                }
+            }
+        });
         return v;
     }
 
@@ -74,7 +90,7 @@ public class WallpaperPageFragment extends Fragment{
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-           wallpaperBitmap = bitmap;
+            wallpaperBitmap = bitmap;
             wallpaperView.setImageBitmap(wallpaperBitmap);
         }
     }
