@@ -40,7 +40,8 @@ public class BingImageFetcher {
             ByteArrayOutputStream out = new ByteArrayOutputStream();
 
             if(connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND){
-                Log.d(TAG, "The image has been deleted from this URL");
+                //The file has been deleted from the file server
+
             }
             InputStream in = connection.getInputStream();
 
@@ -59,7 +60,9 @@ public class BingImageFetcher {
     public List<WallpaperItem> fetchItems(String searchQuery){
         List<WallpaperItem> items = new ArrayList<>();
         try{
-            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + searchQuery + "%27&ImageFilters=%27Size%3AWidth%3A1920%2BSize%3AHeight%3A1080%27&$format=json").toString();
+            String encodedQuery =  Uri.encode(searchQuery);
+
+            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + encodedQuery + "%27&ImageFilters=%27Size%3AWidth%3A1920%2BSize%3AHeight%3A1080%27&$format=json").toString();
 
             //getUrlBytes returns bytes which can be casted to String to see the JSON result
             String jsonString =  new String(getUrlBytes(url, true));
