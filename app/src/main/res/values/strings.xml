@@ -3,4 +3,5 @@
     <string name="search">Search Wallpapers</string>
     <string name="set_wallpaper">Set as Wallpaper</string>
     <string name="wallpaper_added">Wallpaper added</string>
+    <string name="wallpaper_not_loaded">Please wait for wallpaper to display</string>
 </resources>

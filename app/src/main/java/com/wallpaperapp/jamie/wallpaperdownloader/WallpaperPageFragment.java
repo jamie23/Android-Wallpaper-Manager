@@ -58,11 +58,16 @@ public class WallpaperPageFragment extends Fragment{
             public void onClick(View v) {
                 WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
                 try{
-                    wallpaperManager.setBitmap(wallpaperBitmap);
-                    Snackbar snackbar = Snackbar
-                            .make(v, R.string.wallpaper_added, Snackbar.LENGTH_LONG);
-                    snackbar.show();
-
+                    if(wallpaperBitmap==null){
+                        Snackbar snackbar = Snackbar
+                                .make(v, R.string.wallpaper_not_loaded, Snackbar.LENGTH_SHORT);
+                        snackbar.show();
+                    }else{
+                        wallpaperManager.setBitmap(wallpaperBitmap);
+                        Snackbar snackbar = Snackbar
+                                .make(v, R.string.wallpaper_added, Snackbar.LENGTH_LONG);
+                        snackbar.show();
+                    }
                 }catch(IOException ioe){
                     Log.e(TAG, "Error setting the wallpaper", ioe);
                 }
