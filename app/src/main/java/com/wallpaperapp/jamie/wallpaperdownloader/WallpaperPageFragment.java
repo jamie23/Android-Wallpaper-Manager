@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -58,6 +59,10 @@ public class WallpaperPageFragment extends Fragment{
                 WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
                 try{
                     wallpaperManager.setBitmap(wallpaperBitmap);
+                    Snackbar snackbar = Snackbar
+                            .make(v, R.string.wallpaper_added, Snackbar.LENGTH_LONG);
+                    snackbar.show();
+
                 }catch(IOException ioe){
                     Log.e(TAG, "Error setting the wallpaper", ioe);
                 }
