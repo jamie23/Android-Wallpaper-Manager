@@ -73,7 +73,7 @@ public class WallpaperFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_wallpaper, container, false);
         mWallpaperRecyclerView = (RecyclerView) v.findViewById(R.id.fragment_wallpaper_recycler_view);
-        mWallpaperRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        mWallpaperRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
         return v;
     }

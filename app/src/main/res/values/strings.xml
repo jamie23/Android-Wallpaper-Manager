@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">WallpaperDownloader</string>
+    <string name="app_name">Wallpaper Downloader</string>
     <string name="search">Search Wallpapers</string>
     <string name="set_wallpaper">Set as Wallpaper</string>
     <string name="wallpaper_added">Wallpaper added</string>
     <string name="wallpaper_not_loaded">Please wait for wallpaper to display</string>
+    <string name="wallpaper_switcher">Wallpaper Switcher</string>
+    <string name="browse_wallpapers">Browse Wallpapers</string>
+
 </resources>
