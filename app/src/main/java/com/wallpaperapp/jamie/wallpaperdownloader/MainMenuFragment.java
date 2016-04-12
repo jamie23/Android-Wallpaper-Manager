@@ -1,5 +1,6 @@
 package com.wallpaperapp.jamie.wallpaperdownloader;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,7 +20,16 @@ public class MainMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.main_menu_fragment, container, false);
+
+        View browseWallpapers = (View) v.findViewById(R.id.browse_wallpapers_layout);
+        browseWallpapers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = WallpaperActivity.newIntent(getContext());
+                startActivity(i);
+            }
+        });
+
         return v;
     }
-
 }
