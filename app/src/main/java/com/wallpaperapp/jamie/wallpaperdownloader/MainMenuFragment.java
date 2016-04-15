@@ -25,7 +25,16 @@ public class MainMenuFragment extends Fragment {
         browseWallpapers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = WallpaperActivity.newIntent(getContext());
+                Intent i = SingleWallpaperActivity.newIntent(getContext());
+                startActivity(i);
+            }
+        });
+
+        View wallpaperScheduler = (View) v.findViewById(R.id.wallpaper_scheduler_layout);
+        wallpaperScheduler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = WallpaperSchedulerActivity.newIntent(getContext());
                 startActivity(i);
             }
         });

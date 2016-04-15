@@ -41,7 +41,7 @@
         android:layout_height="0dp"
         android:layout_weight="50"
         android:background="@color/colorAccent"
-        android:id="@+id/wallpaper_switcher_layout">
+        android:id="@+id/wallpaper_scheduler_layout">
 
     <RelativeLayout
             android:layout_width="match_parent"

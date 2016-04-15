@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 /**
  * Created by jamie on 08/04/2016.
  */
-public class WallpaperPageActivity extends SingleFragmentActivity {
+public class WallpaperPageActivity extends BrowseFragmentActivity {
 
     public static Intent newIntent(Context context, Uri uri){
         Intent i = new Intent(context, WallpaperPageActivity.class);

@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by Jamie on 22/01/2016.
  */
-public abstract class SingleFragmentActivity extends AppCompatActivity {
+public abstract class BrowseFragmentActivity extends AppCompatActivity {
     protected abstract Fragment createFragment();
 
     @LayoutRes

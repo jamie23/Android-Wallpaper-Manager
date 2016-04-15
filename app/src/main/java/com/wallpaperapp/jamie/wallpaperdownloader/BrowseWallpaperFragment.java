@@ -28,15 +28,15 @@ import java.util.List;
 /**
  * Created by jamie on 31/03/2016.
  */
-public class WallpaperFragment extends Fragment {
+public class BrowseWallpaperFragment extends Fragment {
     private static final String TAG = "PhotoGalleryFragment";
     private RecyclerView mWallpaperRecyclerView;
     private List<WallpaperItem> mItems = new ArrayList<>();
     private WallpaperDownloader<WallpaperHolder> mWallpaperDownloader;
     private String searchQuery = "Moon";
 
-    public static WallpaperFragment newInstance() {
-        return new WallpaperFragment();
+    public static BrowseWallpaperFragment newInstance() {
+        return new BrowseWallpaperFragment();
     }
 
     @Override
