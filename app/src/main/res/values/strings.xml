@@ -7,4 +7,7 @@
     <string name="wallpaper_switcher">Wallpaper Switcher</string>
     <string name="browse_wallpapers">Browse Wallpapers</string>
 
+    <string name="scheduler_status_title">Current Status:</string>
+
+
 </resources>
