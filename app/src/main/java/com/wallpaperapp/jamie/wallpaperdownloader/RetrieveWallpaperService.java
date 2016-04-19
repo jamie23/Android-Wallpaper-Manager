@@ -2,6 +2,7 @@ package com.wallpaperapp.jamie.wallpaperdownloader;
 
 import android.app.job.JobParameters;
 import android.app.job.JobService;
+import android.os.AsyncTask;
 
 /**
  * Created by jamie on 15/04/2016.
@@ -15,7 +16,7 @@ public class RetrieveWallpaperService extends JobService {
             Kick off the retrieval of the results for that search
             Choose random number from that to get a wallpaper
             set wallpaper.
-           */
+         */
 
         //False meaning job has finished.
         return false;
@@ -24,5 +25,16 @@ public class RetrieveWallpaperService extends JobService {
     @Override
     public boolean onStopJob(JobParameters params) {
         return false;
+    }
+
+    private class RetrieveWallpaperAsync extends AsyncTask<Void, Void, Void>{
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            //Get the user entered search word, stored in shared preferences, and retrieve results for it
+
+
+            return null;
+        }
     }
 }
