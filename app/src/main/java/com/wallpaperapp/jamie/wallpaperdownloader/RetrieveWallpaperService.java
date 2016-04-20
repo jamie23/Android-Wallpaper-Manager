@@ -3,17 +3,19 @@ package com.wallpaperapp.jamie.wallpaperdownloader;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 /**
  * Created by jamie on 15/04/2016.
  */
 public class RetrieveWallpaperService extends JobService {
     private RetrieveWallpaperAsync currentTask;
+    private int i = 0;
 
     @Override
     public boolean onStartJob(JobParameters params) {
-        currentTask = new RetrieveWallpaperAsync();
-        currentTask.execute(params);
+        Toast.makeText(getApplicationContext(),"Started job", Toast.LENGTH_SHORT).show();
+        new RetrieveWallpaperAsync(this).execute(params);
         /* MUST BE DONE INSIDE AN ASYNC TASK.
             Retrieve what the user has set as the theme of their wallpaper.
             Kick off the retrieval of the results for that search
@@ -21,35 +23,34 @@ public class RetrieveWallpaperService extends JobService {
             set wallpaper.
          */
 
-
-
         //False meaning job has finished.
         return true;
     }
 
     @Override
     public boolean onStopJob(JobParameters params) {
-        //System has stopped job
-        if(currentTask!=null){
-            currentTask.cancel(true);
-        }
-        return true;
+        return false;
     }
 
+    private class RetrieveWallpaperAsync extends AsyncTask<JobParameters, Void, JobParameters>{
+        private final JobService jobService;
 
-
-
-
-    private class RetrieveWallpaperAsync extends AsyncTask<JobParameters, Void, Void>{
+        public RetrieveWallpaperAsync(JobService jobService) {
+            this.jobService = jobService;
+        }
 
         @Override
-        protected Void doInBackground(JobParameters... params) {
+        protected JobParameters doInBackground(JobParameters... params) {
             //Get the user entered search word, stored in shared preferences, and retrieve results for it
-            JobParameters jobParams = params[0];
+//            JobParameters jobParams = params[0];
 
+            return params[0];
+        }
 
-
-            return null;
+        @Override
+        protected void onPostExecute(JobParameters params) {
+            Toast.makeText(getApplicationContext(),Integer.toString(i), Toast.LENGTH_LONG).show();
+            jobService.jobFinished(params, false);
         }
     }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by jamie on 14/04/2016.
@@ -29,12 +30,25 @@ public class WallpaperSchedulerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_wallpaper_scheduler,container,false);
+        final JobScheduler scheduler = (JobScheduler) getContext().getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
         queryText = (EditText) v.findViewById(R.id.search_query);
         daysToSwitch = (EditText) v.findViewById(R.id.days_to_switch);
         
-        Button btnSubmit = (Button) v.findViewById(R.id.btn_start_scheduler);
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        Button btnStartScheduler = (Button) v.findViewById(R.id.btn_start_scheduler);
+        Button btnStop = (Button) v.findViewById(R.id.btn_stop_scheduler);
+
+
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scheduler.cancelAll();
+                Toast.makeText(getActivity(),"cancelled all", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        btnStartScheduler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Get the time and search input, save them in shared preferences
@@ -44,26 +58,17 @@ public class WallpaperSchedulerFragment extends Fragment {
                 editor.putInt(getString(R.string.saved_scheduler_days), Integer.parseInt(daysToSwitch.getText().toString()));
                 editor.commit();
 
+                Toast.makeText(getActivity(),"Setting up jobInfo", Toast.LENGTH_SHORT).show();
 
-                //Start job
-                JobScheduler scheduler = (JobScheduler) getContext().getSystemService(Context.JOB_SCHEDULER_SERVICE);
+                JobInfo jobInfo = new JobInfo.Builder(
+                        JOB_ID, new ComponentName(getActivity(), RetrieveWallpaperService.class))
+                        .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                        .setPeriodic(1000*30)
+                        .setPersisted(true)
+                        .build();
+                scheduler.schedule(jobInfo);
+                Toast.makeText(getActivity(),"started scheduler", Toast.LENGTH_LONG).show();
 
-                boolean hasBeenScheduled = true;
-                for(JobInfo jobInfo : scheduler.getAllPendingJobs()){
-                    if(jobInfo.getId() == JOB_ID){
-                        hasBeenScheduled = true;
-                    }
-                }
-
-                if(hasBeenScheduled == false){
-                    JobInfo jobInfo = new JobInfo.Builder(
-                            JOB_ID, new ComponentName(getContext(), RetrieveWallpaperService.class))
-                            .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
-                            .setPeriodic(1000)
-                            .setPersisted(true)
-                            .build();
-                    scheduler.schedule(jobInfo);
-                }
             }
         });
         return v;
