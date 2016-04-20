@@ -8,9 +8,12 @@ import android.os.AsyncTask;
  * Created by jamie on 15/04/2016.
  */
 public class RetrieveWallpaperService extends JobService {
+    private RetrieveWallpaperAsync currentTask;
+
     @Override
     public boolean onStartJob(JobParameters params) {
-
+        currentTask = new RetrieveWallpaperAsync();
+        currentTask.execute(params);
         /* MUST BE DONE INSIDE AN ASYNC TASK.
             Retrieve what the user has set as the theme of their wallpaper.
             Kick off the retrieval of the results for that search
@@ -18,20 +21,32 @@ public class RetrieveWallpaperService extends JobService {
             set wallpaper.
          */
 
+
+
         //False meaning job has finished.
-        return false;
+        return true;
     }
 
     @Override
     public boolean onStopJob(JobParameters params) {
-        return false;
+        //System has stopped job
+        if(currentTask!=null){
+            currentTask.cancel(true);
+        }
+        return true;
     }
 
-    private class RetrieveWallpaperAsync extends AsyncTask<Void, Void, Void>{
+
+
+
+
+    private class RetrieveWallpaperAsync extends AsyncTask<JobParameters, Void, Void>{
 
         @Override
-        protected Void doInBackground(Void... params) {
+        protected Void doInBackground(JobParameters... params) {
             //Get the user entered search word, stored in shared preferences, and retrieve results for it
+            JobParameters jobParams = params[0];
+
 
 
             return null;

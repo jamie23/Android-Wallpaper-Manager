@@ -24,6 +24,7 @@
 
 
             <EditText
+                android:id="@+id/search_query"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/wallpaper_theme_title"
@@ -45,6 +46,7 @@
 
 
             <EditText
+                android:id="@+id/days_to_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/wallpaper_theme_title"
