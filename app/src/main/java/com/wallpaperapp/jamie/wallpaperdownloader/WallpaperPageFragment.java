@@ -76,8 +76,6 @@ public class WallpaperPageFragment extends Fragment{
         return v;
     }
 
-
-
     private class FetchWallpaperTask extends AsyncTask<String, Void, Bitmap> {
         private String wallpaperURL;
         private Bitmap wallpaperBitmapDownload;
@@ -96,7 +94,6 @@ public class WallpaperPageFragment extends Fragment{
             }
             return wallpaperBitmapDownload;
         }
-
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {

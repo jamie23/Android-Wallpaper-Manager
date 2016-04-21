@@ -58,8 +58,6 @@ public class WallpaperSchedulerFragment extends Fragment {
                 editor.putInt(getString(R.string.saved_scheduler_days), Integer.parseInt(daysToSwitch.getText().toString()));
                 editor.commit();
 
-                Toast.makeText(getActivity(),"Setting up jobInfo", Toast.LENGTH_SHORT).show();
-
                 JobInfo jobInfo = new JobInfo.Builder(
                         JOB_ID, new ComponentName(getActivity(), RetrieveWallpaperService.class))
                         .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
@@ -67,8 +65,6 @@ public class WallpaperSchedulerFragment extends Fragment {
                         .setPersisted(true)
                         .build();
                 scheduler.schedule(jobInfo);
-                Toast.makeText(getActivity(),"started scheduler", Toast.LENGTH_LONG).show();
-
             }
         });
         return v;
