@@ -16,4 +16,7 @@
     <string name="stop_scheduler">Stop Scheduler</string>
     <string name="saved_scheduler_query">schedulerQuery</string>
     <string name="saved_scheduler_days">schedulerDays</string>
+    <string name="wallpaper_switcher_off">Wallpaper switcher turned off</string>
+    <string name="wallpaper_switcher_on">Wallpaper switcher turned on</string>
+    <string name="no_options_input">Please fill in above options correctly</string>
 </resources>

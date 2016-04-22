@@ -3,9 +3,11 @@ package com.wallpaperapp.jamie.wallpaperdownloader;
 import android.app.WallpaperManager;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import java.io.IOException;
@@ -50,7 +52,12 @@ public class RetrieveWallpaperService extends JobService {
         protected JobParameters doInBackground(JobParameters... params) {
             //Get the user entered search word, stored in shared preferences, and retrieve results for it
 //            JobParameters jobParams = params[0];
-            List<WallpaperItem> items = new BingImageFetcher().fetchItems("pandas");
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String searchQuery = preferences.getString(getString(R.string.saved_scheduler_query),"moon");
+
+            Log.i(TAG, "Search query: " + searchQuery);
+
+            List<WallpaperItem> items = new BingImageFetcher().fetchItems(searchQuery);
 
             Random rand = new Random();
             int randomNum = rand.nextInt((items.size()));
@@ -77,7 +84,6 @@ public class RetrieveWallpaperService extends JobService {
 
         @Override
         protected void onPostExecute(JobParameters params) {
-
             jobService.jobFinished(params, false);
         }
     }
