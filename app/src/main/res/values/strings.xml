@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Wallpaper Downloader</string>
+    <string name="app_name">simple wallpaper manager</string>
+    <string name="my_shoutout">by jamie</string>
+
     <string name="search">Search Wallpapers</string>
     <string name="set_wallpaper">Set as Wallpaper</string>
     <string name="wallpaper_added">Wallpaper added</string>

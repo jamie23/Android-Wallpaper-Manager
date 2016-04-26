@@ -2,67 +2,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center">
+
+     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginTop="50dp"
+        style="@style/MainMenuTitle"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_shoutout"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:background="@color/colorPrimary"
         android:id="@+id/browse_wallpapers_layout">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="50dp">
-            <ImageView
-                android:id="@+id/wallpaper_search_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:src="@android:drawable/ic_search_category_default"
-                android:adjustViewBounds="true"/>
+            android:layout_marginBottom="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/browse_wallpapers"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="50dp"
-                style="@style/MainMenuText"/>
+                style="@style/MainMenuTitle"/>
         </RelativeLayout>
     </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@android:color/darker_gray"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="50"
-        android:background="@color/colorAccent"
-        android:id="@+id/wallpaper_scheduler_layout">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:backgroundTint="@color/colorAccent"
+            android:background="@android:color/white"/>
 
     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
-            <ImageView
-                android:id="@+id/wallpaper_switcher_img"
-                android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:id="@+id/wallpaper_scheduler_layout">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:src="@android:drawable/ic_menu_rotate"
-                android:adjustViewBounds="true"/>
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/wallpaper_switcher"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/wallpaper_switcher_img"
-                style="@style/MainMenuText"/>
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wallpaper_switcher"
+                    android:layout_centerHorizontal="true"
+                    style="@style/MainMenuTitle"/>
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
 </LinearLayout>
