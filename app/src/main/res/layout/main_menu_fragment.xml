@@ -6,10 +6,24 @@
     android:background="@color/colorPrimary"
     android:gravity="center">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginTop="50dp"
+        style="@style/MainMenuTitle"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_shoutout"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:textColor="@android:color/white"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="30"
+        android:layout_weight="50"
         android:id="@+id/browse_wallpapers_layout">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -17,106 +31,61 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp">
 
-            <TextView
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/browse_wallpapers"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="50dp"
-                style="@style/MainMenuTitle"
-                android:padding="10dp"
+                style="@style/MainMenuButtons"
+                android:padding="30dp"
                 android:background="@drawable/background"/>
         </RelativeLayout>
     </RelativeLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:backgroundTint="@color/colorAccent"
+            android:layout_height="2dp"
             android:background="@android:color/white"/>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="70"
+            android:layout_weight="50"
             android:id="@+id/wallpaper_scheduler_layout"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/wallpaper_switcher"
-                android:layout_gravity="center_horizontal"
-                android:padding="20dp"
-                style="@style/MainMenuTitle"/>
+        <Button
+            android:layout_marginTop="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wallpaper_switcher"
+            android:layout_gravity="center_horizontal"
+            android:padding="30dp"
+            style="@style/MainMenuButtons"
+            android:background="@drawable/background"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Status"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="15dp"
+            android:textColor="@android:color/white"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="50">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current wallpaper theme"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Current Status"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="40dp"
-                        android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Days every change:"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Current wallpaper theme"
-                        android:padding="30dp"
-                        android:textColor="@android:color/white"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Days every change:"
-                        android:padding="30dp"
-                        android:textColor="@android:color/white"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="30">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="New switcher settings"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="40dp"
-                        android:textColor="@android:color/white"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="New wallpaper theme"
-                        android:padding="10dp"
-                        android:textColor="@android:color/white"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Days every change:"
-                        android:padding="10dp"
-                        android:textColor="@android:color/white"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="submit"/>
-
-                </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

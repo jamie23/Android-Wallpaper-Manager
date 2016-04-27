@@ -6,10 +6,18 @@
     <string name="set_wallpaper">Set as Wallpaper</string>
     <string name="wallpaper_added">Wallpaper added</string>
     <string name="wallpaper_not_loaded">Please wait for wallpaper to display</string>
-    <string name="wallpaper_switcher">Wallpaper Switcher</string>
-    <string name="browse_wallpapers">Browse Wallpapers</string>
+    <string name="wallpaper_switcher">wallpaper switcher</string>
+    <string name="browse_wallpapers">browse wallpapers</string>
+
+
+    <string name="scheduler_current_theme_title">Current theme:</string>
 
     <string name="scheduler_status_title">Current Status:</string>
+    <string name="scheduler_new_title">New Scheduler:</string>
+    <string name="scheduler_current_days_title">Days between change:</string>
+    <string name="scheduler_new_theme_title">New theme:</string>
+
+
     <string name="wallpaper_theme">Wallpaper theme:</string>
     <string name="wallpaper_switcher_time_title">Days to switch:</string>
     <string name="theme_hint">Animals</string>

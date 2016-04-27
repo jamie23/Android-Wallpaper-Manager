@@ -13,7 +13,24 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="MainMenuText">
-        <item name="android:textSize">30sp</item>
+    <style name="MainMenuButtons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SwitcherMenuButtons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/background</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+
+    </style>
+
+    <style name="SchedulerDetailsText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">10dp</item>
     </style>
 </resources>

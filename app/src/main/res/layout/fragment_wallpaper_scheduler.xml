@@ -1,71 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/current_status"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scheduler_status_title"
-            android:paddingTop="30dp"
-            style="@style/MainMenuText" />
+            android:layout_gravity="center_horizontal"
+            style="@style/MainMenuTitle"
+            android:layout_marginTop="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/scheduler_current_theme_title"
+            style="@style/SchedulerDetailsText"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scheduler_current_days_title"
+            style="@style/SchedulerDetailsText"/>
+
+        <Button
+            android:id="@+id/btn_stop_scheduler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stop_scheduler"
+            style="@style/SwitcherMenuButtons"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/white"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scheduler_new_title"
+        android:layout_gravity="center_horizontal"
+        style="@style/MainMenuTitle"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp">
+            android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/wallpaper_theme_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/wallpaper_theme"/>
-
+                android:text="@string/scheduler_new_theme_title"
+                style="@style/SchedulerDetailsText"/>
 
             <EditText
-                android:id="@+id/search_query"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/wallpaper_theme_title"
+                android:inputType="numberSigned"
+                android:ems="10"
+                android:id="@+id/search_query"
+                android:layout_gravity="right"
                 android:hint="@string/theme_hint"
-                android:layout_below="@id/current_status"
-                android:paddingLeft="4dp" />
+                style="@style/SchedulerDetailsText"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="4dp">
-
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/wallpaper_time_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/wallpaper_switcher_time_title"/>
-
+                android:text="@string/scheduler_current_days_title"
+                style="@style/SchedulerDetailsText"/>
 
             <EditText
                 android:id="@+id/days_to_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/wallpaper_theme_title"
-                android:hint="@string/days_hint"
-                android:layout_below="@id/current_status"
-                android:paddingLeft="4dp" />
+                android:hint="@string/days_hint"/>
         </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_stop_scheduler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stop_scheduler" />
+        <Button
+            android:id="@+id/btn_start_scheduler"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/start_scheduler"
+            style="@style/SwitcherMenuButtons"
+            android:layout_marginTop="20dp"/>
 
-
-    <Button
-        android:id="@+id/btn_start_scheduler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_scheduler" />
-
+    </LinearLayout>
 </LinearLayout>
