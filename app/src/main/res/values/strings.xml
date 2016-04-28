@@ -21,7 +21,7 @@
     <string name="wallpaper_theme">Wallpaper theme:</string>
     <string name="wallpaper_switcher_time_title">Days to switch:</string>
     <string name="theme_hint">Animals</string>
-    <string name="days_hint">4 days</string>
+    <string name="days_hint">4</string>
     <string name="start_scheduler">Start Scheduler</string>
     <string name="stop_scheduler">Stop Scheduler</string>
     <string name="saved_scheduler_query">schedulerQuery</string>
