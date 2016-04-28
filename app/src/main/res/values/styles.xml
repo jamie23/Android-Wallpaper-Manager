@@ -18,6 +18,12 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="MainMenuButtonsLand" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
     <style name="SwitcherMenuButtons" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@android:color/white</item>

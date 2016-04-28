@@ -23,8 +23,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50"
-        android:id="@+id/browse_wallpapers_layout">
+        android:layout_weight="50">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +38,8 @@
                 android:layout_marginBottom="50dp"
                 style="@style/MainMenuButtons"
                 android:padding="30dp"
-                android:background="@drawable/background"/>
+                android:background="@drawable/background"
+                android:id="@+id/btn_browse_wallpapers"/>
         </RelativeLayout>
     </RelativeLayout>
         <View
@@ -62,7 +62,8 @@
             android:layout_gravity="center_horizontal"
             android:padding="30dp"
             style="@style/MainMenuButtons"
-            android:background="@drawable/background"/>
+            android:background="@drawable/background"
+            android:id="@+id/btn_wallpaper_switcher"/>
 
         <TextView
             android:layout_width="wrap_content"
