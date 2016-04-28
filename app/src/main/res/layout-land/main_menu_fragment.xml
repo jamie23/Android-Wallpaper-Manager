@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
 
     <TextView
+        style="@style/MainMenuTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
-        style="@style/MainMenuTitle"/>
+        android:text="@string/app_name" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
         android:text="@string/my_shoutout"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:textSize="15sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,60 +31,61 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btn_browse_wallpapers"
+                style="@style/MainMenuButtonsLand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/browse_wallpapers"
-                style="@style/MainMenuButtonsLand"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
-                android:padding="30dp"
                 android:background="@drawable/background"
-                android:id="@+id/btn_browse_wallpapers"/>
+                android:padding="30dp"
+                android:text="@string/browse_wallpapers" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="50"
             android:orientation="vertical">
+
             <Button
-                android:layout_marginTop="50dp"
+                android:id="@+id/btn_wallpaper_switcher"
+                style="@style/MainMenuButtonsLand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/wallpaper_switcher"
                 android:layout_gravity="center_horizontal"
-                android:padding="30dp"
-                style="@style/MainMenuButtonsLand"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/background"
-                android:id="@+id/btn_wallpaper_switcher"/>
+                android:padding="30dp"
+                android:text="@string/wallpaper_switcher" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Status"
                 android:layout_gravity="center_horizontal"
                 android:paddingTop="15dp"
-                android:textColor="@android:color/white"/>
+                android:text="Current Status"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="Current wallpaper theme"
-                android:layout_gravity="center_horizontal"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Days between change:"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@android:color/white"/>
+                android:text="Days between change:"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
