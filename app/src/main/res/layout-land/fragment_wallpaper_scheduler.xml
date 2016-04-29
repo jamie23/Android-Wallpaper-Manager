@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/current_status"
+                android:id="@+id/scheduler_current_status"
                 style="@style/MainMenuTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -27,6 +27,7 @@
                 android:text="@string/scheduler_status_title" />
 
             <TextView
+                android:id="@+id/scheduler_current_query"
                 style="@style/SchedulerDetailsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -34,6 +35,7 @@
                 android:text="@string/scheduler_current_theme_title" />
 
             <TextView
+                android:id="@+id/scheduler_current_days"
                 style="@style/SchedulerDetailsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,9 +51,15 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="50"
             android:orientation="vertical">
 
@@ -87,8 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:ems="10"
-                        android:hint="@string/theme_hint"
-                        android:inputType="numberSigned" />
+                        android:hint="@string/theme_hint" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -106,7 +113,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="5"
-                        android:hint="@string/days_hint" />
+                        android:hint="@string/days_hint"
+                        android:inputType="number" />
                 </LinearLayout>
 
                 <Button

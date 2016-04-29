@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/current_status"
+            android:id="@+id/scheduler_current_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scheduler_status_title"
@@ -20,6 +20,7 @@
             android:layout_marginTop="50dp" />
 
         <TextView
+            android:id="@+id/scheduler_current_query"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -27,6 +28,7 @@
             style="@style/SchedulerDetailsText"/>
 
         <TextView
+            android:id="@+id/scheduler_current_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/scheduler_current_days_title"
@@ -80,7 +82,6 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="numberSigned"
                     android:ems="10"
                     android:id="@+id/search_query"
                     android:layout_gravity="right"
@@ -101,6 +102,7 @@
                     android:id="@+id/days_to_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="@string/days_hint"
                     android:ems="5"/>
             </LinearLayout>
