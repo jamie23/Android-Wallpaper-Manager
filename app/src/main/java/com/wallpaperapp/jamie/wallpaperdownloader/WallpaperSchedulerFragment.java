@@ -83,6 +83,12 @@ public class WallpaperSchedulerFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        updateSchedulerUI();
+    }
+
     private void updateSchedulerSettings(String searchQuery, int userDaysSwitch) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getContext());
         SharedPreferences.Editor editor = sharedPref.edit();
