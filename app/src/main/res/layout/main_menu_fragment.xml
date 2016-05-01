@@ -66,6 +66,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/background"
             android:padding="30dp"
+            android:transitionName="hello23"
             android:text="@string/wallpaper_switcher" />
 
         <TextView

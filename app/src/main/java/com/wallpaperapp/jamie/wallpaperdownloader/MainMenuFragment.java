@@ -37,7 +37,7 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
-        Button wallpaperScheduler = (Button) v.findViewById(R.id.btn_wallpaper_switcher);
+        final Button wallpaperScheduler = (Button) v.findViewById(R.id.btn_wallpaper_switcher);
         wallpaperScheduler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
