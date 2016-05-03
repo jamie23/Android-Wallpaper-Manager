@@ -5,7 +5,16 @@
     android:background="@color/color_primary">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_image_loading"
+        android:text="@string/wallpaper_page_image_loading"
+        android:layout_weight="90"
+        android:gravity="center"
+        style="@style/MainMenuTitle"/>
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_image_deleted"
         android:text="@string/wallpaper_page_image_deleted"
@@ -14,16 +23,6 @@
         android:visibility="gone"
         style="@style/MainMenuTitle"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_image_loading"
-        android:text="@string/wallpaper_page_image_loading"
-        android:layout_weight="90"
-        android:gravity="center"
-        android:visibility="visible"
-        style="@style/MainMenuTitle"/>
-    
     <ImageView
         android:id="@+id/image_wallpaper"
         android:layout_width="match_parent"

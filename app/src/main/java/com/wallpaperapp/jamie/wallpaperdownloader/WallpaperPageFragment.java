@@ -30,7 +30,7 @@ public class WallpaperPageFragment extends Fragment{
     private TextView txtImageDeleted;
     private TextView txtImageLoading;
     private Bitmap wallpaperBitmap;
-    private Button setWallpaperButton;
+    private Button btnSetWallpaper;
 
     public static WallpaperPageFragment newInstance(Uri uri){
         Bundle args = new Bundle();
@@ -57,8 +57,8 @@ public class WallpaperPageFragment extends Fragment{
         txtImageDeleted = (TextView) v.findViewById(R.id.txt_image_deleted);
         txtImageLoading= (TextView) v.findViewById(R.id.txt_image_loading);
 
-        setWallpaperButton = (Button) v.findViewById(R.id.btn_set_wallpaper);
-        setWallpaperButton.setOnClickListener(new View.OnClickListener() {
+        btnSetWallpaper = (Button) v.findViewById(R.id.btn_set_wallpaper);
+        btnSetWallpaper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
@@ -105,8 +105,9 @@ public class WallpaperPageFragment extends Fragment{
             if(bitmap==null){
                 //The server no longer has this image
                 wallpaperView.setVisibility(View.GONE);
-                txtImageLoading.setVisibility(View.GONE);
+                txtImageLoading.setVisibility(View.GONE);1`
                 txtImageDeleted.setVisibility(View.VISIBLE);
+                btnSetWallpaper.setVisibility(View.GONE);
             }else {
                 txtImageDeleted.setVisibility(View.GONE);
                 txtImageLoading.setVisibility(View.GONE);

@@ -93,7 +93,6 @@ public class BrowseWallpaperFragment extends Fragment {
                 searchQuery = s;
                 updateWallpapers();
                 hideKeyboard();
-
                 return true;
             }
 
