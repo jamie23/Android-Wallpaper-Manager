@@ -105,7 +105,7 @@ public class WallpaperPageFragment extends Fragment{
             if(bitmap==null){
                 //The server no longer has this image
                 wallpaperView.setVisibility(View.GONE);
-                txtImageLoading.setVisibility(View.GONE);1`
+                txtImageLoading.setVisibility(View.GONE);
                 txtImageDeleted.setVisibility(View.VISIBLE);
                 btnSetWallpaper.setVisibility(View.GONE);
             }else {

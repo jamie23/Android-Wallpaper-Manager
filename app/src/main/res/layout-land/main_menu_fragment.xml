@@ -5,28 +5,35 @@
     android:background="@color/color_primary"
     android:orientation="vertical">
 
-
-    <TextView
-        style="@style/MainMenuTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="@string/app_name" />
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="@string/my_shoutout"
-        android:textColor="@android:color/white"
-        android:textSize="15sp" />
+        <TextView
+            style="@style/MainMenuTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/my_shoutout"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="70">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -46,6 +53,11 @@
                 android:padding="30dp"
                 android:text="@string/browse_wallpapers" />
         </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
 
         <LinearLayout
             android:layout_width="0dp"
