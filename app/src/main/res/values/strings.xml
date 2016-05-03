@@ -1,33 +1,39 @@
 <resources>
     <string name="app_name">simple wallpaper manager</string>
+
+    <!--Main menu-->
+    <string name="main_menu_browse_wallpapers">browse wallpapers</string>
+    <string name="main_menu_scheduler_status">Current Status:</string>
+    <string name="main_menu_scheduler_days">Days between change:</string>
+    <string name="main_menu_scheduler_theme_title">Current theme:</string>
+    <string name="main_menu_wallpaper_switcher">wallpaper switcher</string>
     <string name="my_shoutout">by jamie</string>
 
-    <string name="search">Search Wallpapers</string>
+    <!--Wallpaper page-->
     <string name="set_wallpaper">Set as Wallpaper</string>
     <string name="wallpaper_added">Wallpaper added</string>
     <string name="wallpaper_not_loaded">Please wait for wallpaper to display</string>
-    <string name="wallpaper_switcher">wallpaper switcher</string>
-    <string name="browse_wallpapers">browse wallpapers</string>
-
     <string name="wallpaper_page_image_deleted">Sorry, this image has been deleted.</string>
     <string name="wallpaper_page_image_loading">Loading...</string>
 
+    <!--Scheduler-->
+    <string name="scheduler_new_title">New Scheduler:</string>
+    <string name="scheduler_new_theme_title">New theme:</string>
+    <string name="scheduler_current_days_title">Days between change:</string>
     <string name="scheduler_current_theme_title">Current theme:</string>
     <string name="scheduler_status_title">Current Status:</string>
-    <string name="scheduler_new_title">New Scheduler:</string>
-    <string name="scheduler_current_days_title">Days between change:</string>
-    <string name="scheduler_new_theme_title">New theme:</string>
-
-
-    <string name="wallpaper_theme">Wallpaper theme:</string>
-    <string name="wallpaper_switcher_time_title">Days to switch:</string>
-    <string name="theme_hint">Animals</string>
-    <string name="days_hint">4</string>
     <string name="start_scheduler">Start Scheduler</string>
     <string name="stop_scheduler">Stop Scheduler</string>
     <string name="saved_scheduler_query">schedulerQuery</string>
-    <string name="saved_scheduler_days">schedulerDays</string>
+    <string name="scheduler_theme_hint">Animals</string>
+    <string name="scheduler_days_hint">4</string>
     <string name="wallpaper_switcher_off">Wallpaper switcher turned off</string>
     <string name="wallpaper_switcher_on">Wallpaper switcher turned on</string>
     <string name="no_options_input">Please fill in above options correctly</string>
+
+    <!--SharedPreferences key-->
+    <string name="saved_scheduler_days">schedulerDays</string>
+
+    <!-- Options menu -->
+    <string name="search">Search</string>
 </resources>

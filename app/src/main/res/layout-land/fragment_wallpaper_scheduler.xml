@@ -95,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:ems="10"
-                        android:hint="@string/theme_hint" />
+                        android:hint="@string/scheduler_theme_hint" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -113,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ems="5"
-                        android:hint="@string/days_hint"
+                        android:hint="@string/scheduler_days_hint"
                         android:inputType="number" />
                 </LinearLayout>
 

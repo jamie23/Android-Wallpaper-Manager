@@ -41,7 +41,7 @@
                 android:layout_marginBottom="50dp"
                 android:background="@drawable/background"
                 android:padding="30dp"
-                android:text="@string/browse_wallpapers" />
+                android:text="@string/main_menu_browse_wallpapers" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -66,7 +66,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/background"
             android:padding="30dp"
-            android:text="@string/wallpaper_switcher" />
+            android:text="@string/main_menu_wallpaper_switcher" />
 
         <TextView
             android:id="@+id/current_status"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingTop="15dp"
-            android:text="Current Status"
+            android:text="@string/main_menu_scheduler_status"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Current wallpaper theme"
+            android:text="@string/main_menu_scheduler_theme_title"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Days between change:"
+            android:text="@string/main_menu_scheduler_days"
             android:textColor="@android:color/white" />
     </LinearLayout>
 </LinearLayout>

@@ -51,7 +51,7 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/background"
                 android:padding="30dp"
-                android:text="@string/browse_wallpapers" />
+                android:text="@string/main_menu_browse_wallpapers" />
         </LinearLayout>
 
         <View
@@ -75,7 +75,7 @@
                 android:layout_marginTop="50dp"
                 android:background="@drawable/background"
                 android:padding="30dp"
-                android:text="@string/wallpaper_switcher" />
+                android:text="@string/main_menu_wallpaper_switcher" />
 
             <TextView
                 android:id="@+id/current_status"
