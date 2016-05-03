@@ -28,6 +28,7 @@ public class WallpaperPageFragment extends Fragment{
     private Uri mUri;
     private ImageView wallpaperView;
     private TextView txtImageDeleted;
+    private TextView txtImageLoading;
     private Bitmap wallpaperBitmap;
     private Button setWallpaperButton;
 
@@ -54,6 +55,7 @@ public class WallpaperPageFragment extends Fragment{
         View v = inflater.inflate(R.layout.fragment_wallpaper_page, container, false);
         wallpaperView = (ImageView) v.findViewById(R.id.image_wallpaper);
         txtImageDeleted = (TextView) v.findViewById(R.id.txt_image_deleted);
+        txtImageLoading= (TextView) v.findViewById(R.id.txt_image_loading);
 
         setWallpaperButton = (Button) v.findViewById(R.id.btn_set_wallpaper);
         setWallpaperButton.setOnClickListener(new View.OnClickListener() {
@@ -103,10 +105,11 @@ public class WallpaperPageFragment extends Fragment{
             if(bitmap==null){
                 //The server no longer has this image
                 wallpaperView.setVisibility(View.GONE);
+                txtImageLoading.setVisibility(View.GONE);
                 txtImageDeleted.setVisibility(View.VISIBLE);
-
             }else {
                 txtImageDeleted.setVisibility(View.GONE);
+                txtImageLoading.setVisibility(View.GONE);
                 wallpaperView.setVisibility(View.VISIBLE);
                 wallpaperBitmap = bitmap;
                 wallpaperView.setImageBitmap(wallpaperBitmap);
