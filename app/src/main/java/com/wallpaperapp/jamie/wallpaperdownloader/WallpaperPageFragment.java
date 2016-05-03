@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 
@@ -26,6 +27,7 @@ public class WallpaperPageFragment extends Fragment{
 
     private Uri mUri;
     private ImageView wallpaperView;
+    private TextView txtImageDeleted;
     private Bitmap wallpaperBitmap;
     private Button setWallpaperButton;
 
@@ -51,6 +53,7 @@ public class WallpaperPageFragment extends Fragment{
                              Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_wallpaper_page, container, false);
         wallpaperView = (ImageView) v.findViewById(R.id.image_wallpaper);
+        txtImageDeleted = (TextView) v.findViewById(R.id.txt_image_deleted);
 
         setWallpaperButton = (Button) v.findViewById(R.id.btn_set_wallpaper);
         setWallpaperButton.setOnClickListener(new View.OnClickListener() {
@@ -97,8 +100,17 @@ public class WallpaperPageFragment extends Fragment{
 
         @Override
         protected void onPostExecute(Bitmap bitmap) {
-            wallpaperBitmap = bitmap;
-            wallpaperView.setImageBitmap(wallpaperBitmap);
+            if(bitmap==null){
+                //The server no longer has this image
+                wallpaperView.setVisibility(View.GONE);
+                txtImageDeleted.setVisibility(View.VISIBLE);
+
+            }else {
+                txtImageDeleted.setVisibility(View.GONE);
+                wallpaperView.setVisibility(View.VISIBLE);
+                wallpaperBitmap = bitmap;
+                wallpaperView.setImageBitmap(wallpaperBitmap);
+            }
         }
     }
 }

@@ -9,9 +9,9 @@
     <string name="wallpaper_switcher">wallpaper switcher</string>
     <string name="browse_wallpapers">browse wallpapers</string>
 
+    <string name="wallpaper_page_image_deleted">Sorry, this image has been deleted.</string>
 
     <string name="scheduler_current_theme_title">Current theme:</string>
-
     <string name="scheduler_status_title">Current Status:</string>
     <string name="scheduler_new_title">New Scheduler:</string>
     <string name="scheduler_current_days_title">Days between change:</string>
