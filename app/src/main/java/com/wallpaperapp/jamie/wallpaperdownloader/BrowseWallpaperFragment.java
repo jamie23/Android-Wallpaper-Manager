@@ -44,6 +44,11 @@ public class BrowseWallpaperFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         updateWallpapers();
 
         /*
@@ -65,11 +70,6 @@ public class BrowseWallpaperFragment extends Fragment {
         mWallpaperDownloader.start();
         mWallpaperDownloader.getLooper();
         Log.i(TAG, "background thread started");
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_wallpaper, container, false);
         mWallpaperRecyclerView = (RecyclerView) v.findViewById(R.id.fragment_wallpaper_recycler_view);
@@ -79,7 +79,7 @@ public class BrowseWallpaperFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         super.onCreateOptionsMenu(menu, menuInflater);
         menuInflater.inflate(R.menu.fragment_wallpaper_gallery, menu);
 
@@ -104,21 +104,19 @@ public class BrowseWallpaperFragment extends Fragment {
         });
     }
 
-
-
-    private void updateWallpapers(){
+    private void updateWallpapers() {
         new FetchItemsTask().execute(searchQuery);
     }
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
         mWallpaperDownloader.quit();
         Log.i(TAG, "Background thread destroyed");
     }
 
     @Override
-    public void onDestroyView(){
+    public void onDestroyView() {
         super.onDestroy();
         mWallpaperDownloader.clearQueue();
     }
@@ -140,27 +138,27 @@ public class BrowseWallpaperFragment extends Fragment {
     }
 
     private class WallpaperHolder extends RecyclerView.ViewHolder
-        implements View.OnClickListener{
+            implements View.OnClickListener {
         private WallpaperItem wallpaperSelected;
 
         private ImageView mWallpaperImageView;
 
-        public WallpaperHolder(View itemView){
+        public WallpaperHolder(View itemView) {
             super(itemView);
             mWallpaperImageView = (ImageView) itemView.findViewById(R.id.fragment_wallpaper_image_view);
             itemView.setOnClickListener(this);
         }
 
-        public void bindDrawable(Drawable drawable){
+        public void bindDrawable(Drawable drawable) {
             mWallpaperImageView.setImageDrawable(drawable);
         }
 
-        public void bindWallpaperItem(WallpaperItem wallpaperItem){
+        public void bindWallpaperItem(WallpaperItem wallpaperItem) {
             wallpaperSelected = wallpaperItem;
         }
 
         @Override
-        public void onClick(View v){
+        public void onClick(View v) {
             Intent i = WallpaperPageActivity.newIntent(getActivity(), wallpaperSelected.getURI());
             startActivity(i);
         }
@@ -184,7 +182,7 @@ public class BrowseWallpaperFragment extends Fragment {
         public void onBindViewHolder(WallpaperHolder photoHolder, int position) {
             WallpaperItem wallpaperItem = mWallpaperItems.get(position);
             photoHolder.bindWallpaperItem(wallpaperItem);
-            mWallpaperDownloader.queueWallpaper(photoHolder,wallpaperItem.getThumbnailURL());
+            mWallpaperDownloader.queueWallpaper(photoHolder, wallpaperItem.getThumbnailURL());
 
         }
 
