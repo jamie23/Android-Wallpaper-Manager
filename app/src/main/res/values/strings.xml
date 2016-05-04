@@ -3,11 +3,17 @@
 
     <!--Main menu-->
     <string name="main_menu_browse_wallpapers">browse wallpapers</string>
-    <string name="main_menu_scheduler_status">Current Status:</string>
+    <string name="main_menu_scheduler_status">Current Status: %1$s</string>
     <string name="main_menu_scheduler_days">Days between change:</string>
     <string name="main_menu_scheduler_theme_title">Current theme:</string>
     <string name="main_menu_wallpaper_switcher">wallpaper switcher</string>
     <string name="my_shoutout">by jamie</string>
+
+    <plurals name="scheduler_days_plural">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+
 
     <!--Wallpaper page-->
     <string name="set_wallpaper">Set as Wallpaper</string>
@@ -19,8 +25,9 @@
     <!--Scheduler-->
     <string name="scheduler_new_title">New Scheduler:</string>
     <string name="scheduler_new_theme_title">New theme:</string>
-    <string name="scheduler_current_days_title">Days between change:</string>
-    <string name="scheduler_current_theme_title">Current theme:</string>
+    <string name="scheduler_current_days_title">Days between change: %1$s</string>
+    <string name="scheduler_new_days_title">Days between change:</string>
+    <string name="scheduler_current_theme_title">Current theme: %1$s</string>
     <string name="scheduler_status_title">Current Status:</string>
     <string name="start_scheduler">Start Scheduler</string>
     <string name="stop_scheduler">Stop Scheduler</string>

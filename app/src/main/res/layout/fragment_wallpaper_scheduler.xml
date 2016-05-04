@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/scheduler_current_days_title"
+                    android:text="@string/scheduler_new_days_title"
                     style="@style/SchedulerDetailsText"/>
 
                 <EditText

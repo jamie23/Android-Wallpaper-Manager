@@ -69,11 +69,11 @@ public class MainMenuFragment extends Fragment {
 
         if (schedulerDays != 0) {
             //Scheduler on
-            txtSchedulerStatus.setText("Current Status: On");
+            txtSchedulerStatus.setText(getString(R.string.main_menu_scheduler_status," On"));
             txtSchedulerTheme.setText(schedulerQuery);
-            txtSchedulerDays.setText(schedulerDays + " days");
+            txtSchedulerDays.setText(getResources().getQuantityString(R.plurals.scheduler_days_plural, schedulerDays, schedulerDays));
         } else {
-            txtSchedulerStatus.setText("Current Status: Off");
+            txtSchedulerStatus.setText(getString(R.string.main_menu_scheduler_status," Off"));
             txtSchedulerTheme.setText("");
             txtSchedulerDays.setText("");
         }

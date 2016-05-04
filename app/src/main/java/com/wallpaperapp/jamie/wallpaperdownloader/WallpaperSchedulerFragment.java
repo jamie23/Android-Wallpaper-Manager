@@ -119,11 +119,11 @@ public class WallpaperSchedulerFragment extends Fragment {
 
         if (schedulerDays != 0) {
             //Scheduler on
-            txtSchedulerStatus.setText("Current Status: On");
-            txtSchedulerTheme.setText("Current theme: " + schedulerQuery);
-            txtSchedulerDays.setText("Days between change: " + schedulerDays + " days");
+            txtSchedulerStatus.setText(getString(R.string.main_menu_scheduler_status," On"));
+            txtSchedulerTheme.setText(getString(R.string.scheduler_current_theme_title, schedulerQuery));
+            txtSchedulerDays.setText(getString(R.string.scheduler_current_days_title, getResources().getQuantityString(R.plurals.scheduler_days_plural, schedulerDays, schedulerDays)));
         } else {
-            txtSchedulerStatus.setText("Current Status: Off");
+            txtSchedulerStatus.setText(getString(R.string.main_menu_scheduler_status," Off"));
             txtSchedulerTheme.setText("");
             txtSchedulerDays.setText("");
         }
