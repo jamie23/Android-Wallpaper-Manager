@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +30,6 @@ import java.util.List;
 public class BrowseWallpaperFragment extends Fragment {
     private static final String TAG = "PhotoGalleryFragment";
     private RecyclerView mWallpaperRecyclerView;
-    private List<WallpaperItem> mItems = new ArrayList<>();
     private WallpaperDownloader<WallpaperHolder> mWallpaperDownloader;
     private String searchQuery = "Moon";
 
@@ -52,7 +50,7 @@ public class BrowseWallpaperFragment extends Fragment {
         updateWallpapers();
 
         /*
-            Passing a handler through to downloader so we can update
+            Passing a handler through to downloader so we update
             view in this thread (UI) when image is downloaded.
         */
         Handler responseHandler = new Handler();
@@ -132,8 +130,7 @@ public class BrowseWallpaperFragment extends Fragment {
 
         @Override
         protected void onPostExecute(List<WallpaperItem> items) {
-            mItems = items;
-            mWallpaperRecyclerView.setAdapter(new WallpaperAdapter(mItems));
+            mWallpaperRecyclerView.setAdapter(new WallpaperAdapter(items));
         }
     }
 
@@ -141,7 +138,7 @@ public class BrowseWallpaperFragment extends Fragment {
             implements View.OnClickListener {
         private WallpaperItem wallpaperSelected;
 
-        private ImageView mWallpaperImageView;
+        private final ImageView mWallpaperImageView;
 
         public WallpaperHolder(View itemView) {
             super(itemView);
@@ -165,7 +162,7 @@ public class BrowseWallpaperFragment extends Fragment {
     }
 
     private class WallpaperAdapter extends RecyclerView.Adapter<WallpaperHolder> {
-        private List<WallpaperItem> mWallpaperItems;
+        private final List<WallpaperItem> mWallpaperItems;
 
         public WallpaperAdapter(List<WallpaperItem> wallpaperItems) {
             mWallpaperItems = wallpaperItems;
@@ -195,7 +192,6 @@ public class BrowseWallpaperFragment extends Fragment {
     private void hideKeyboard() {
         final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
-
     }
 }
 

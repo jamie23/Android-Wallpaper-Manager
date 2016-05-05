@@ -16,11 +16,10 @@ import android.widget.TextView;
  * Created by jamie on 12/04/2016.
  */
 public class MainMenuFragment extends Fragment {
-    final String TAG = "MainMenuFragment";
+    private final String TAG = "MainMenuFragment";
 
     public static MainMenuFragment newInstance() {
-        MainMenuFragment fragment = new MainMenuFragment();
-        return fragment;
+        return new MainMenuFragment();
     }
 
     @Override

@@ -19,8 +19,6 @@ import java.util.Random;
  */
 public class RetrieveWallpaperService extends JobService {
     private static final String TAG = "RetrieveService";
-    private RetrieveWallpaperAsync currentTask;
-    private int i = 0;
 
     @Override
     public boolean onStartJob(JobParameters params) {

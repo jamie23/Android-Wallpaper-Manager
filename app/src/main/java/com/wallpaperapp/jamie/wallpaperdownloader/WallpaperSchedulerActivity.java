@@ -10,8 +10,7 @@ import android.support.v4.app.Fragment;
 public class WallpaperSchedulerActivity extends BrowseFragmentActivity {
 
     public static Intent newIntent(Context context){
-        Intent i = new Intent(context, WallpaperSchedulerActivity.class);
-        return i;
+        return new Intent(context, WallpaperSchedulerActivity.class);
     }
 
     @Override

@@ -20,7 +20,8 @@
     <string name="wallpaper_added">Wallpaper added</string>
     <string name="wallpaper_not_loaded">Please wait for wallpaper to display</string>
     <string name="wallpaper_page_image_deleted">Sorry, this image has been deleted.</string>
-    <string name="wallpaper_page_image_loading">Loading...</string>
+    <string name="wallpaper_page_image_loading">Loading&#8230;</string>
+    <string name="wallpaper_item_description">Image retrieved by bing.</string>
 
     <!--Scheduler-->
     <string name="scheduler_new_title">New Scheduler:</string>

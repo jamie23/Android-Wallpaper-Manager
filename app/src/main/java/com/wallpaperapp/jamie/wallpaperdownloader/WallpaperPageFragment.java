@@ -25,7 +25,6 @@ public class WallpaperPageFragment extends Fragment{
     private static final String ARG_URI = "wallpaper_url";
     private static final String TAG = "WallpaperPageFragment";
 
-    private Uri mUri;
     private ImageView wallpaperView;
     private TextView txtImageDeleted;
     private TextView txtImageLoading;
@@ -44,7 +43,7 @@ public class WallpaperPageFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        mUri = getArguments().getParcelable(ARG_URI);
+        Uri mUri = getArguments().getParcelable(ARG_URI);
         new FetchWallpaperTask().execute(mUri.toString());
 
     }

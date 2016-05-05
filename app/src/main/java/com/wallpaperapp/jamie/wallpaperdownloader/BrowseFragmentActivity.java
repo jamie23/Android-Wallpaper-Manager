@@ -13,7 +13,7 @@ public abstract class BrowseFragmentActivity extends AppCompatActivity {
     protected abstract Fragment createFragment();
 
     @LayoutRes
-    protected int getLayoutResId(){
+    private int getLayoutResId(){
         return R.layout.activity_fragment;
     }
 

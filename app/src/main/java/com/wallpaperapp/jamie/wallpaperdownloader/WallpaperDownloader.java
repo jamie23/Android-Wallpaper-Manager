@@ -15,17 +15,17 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Created by jamie on 04/04/2016.
  */
-public class WallpaperDownloader<T> extends HandlerThread {
+class WallpaperDownloader<T> extends HandlerThread {
 
     private static final String TAG = "WallpaperDownloader";
     private static final int MESSAGE_DOWNLOAD = 0;
     private Handler mRequestHandler;
-    private ConcurrentMap<T, String> mRequestMap = new ConcurrentHashMap<>();
-    private int cacheSize = 1024*1024; //4 megabytes
-    private LruCache bitmapCache = new LruCache(cacheSize);
+    private final ConcurrentMap<T, String> mRequestMap = new ConcurrentHashMap<>();
+    private final int cacheSize = 1024*1024; //4 megabytes
+    private final LruCache bitmapCache = new LruCache(cacheSize);
 
     //Main thread handler (UI)
-    private Handler mResponseHandler;
+    private final Handler mResponseHandler;
     private WallpaperDownloadListener<T> mWallpaperDownloadListener;
 
     public interface WallpaperDownloadListener<T>{
@@ -58,9 +58,7 @@ public class WallpaperDownloader<T> extends HandlerThread {
     public void queueWallpaper(T target, String url){
         Log.i(TAG, "URL: " + url);
 
-        if(url==null){
-            return;
-        }else{
+        if(url!=null){
             mRequestMap.put(target,url);
             mRequestHandler.obtainMessage(MESSAGE_DOWNLOAD, target)
                     .sendToTarget();
@@ -92,7 +90,7 @@ public class WallpaperDownloader<T> extends HandlerThread {
 
             mResponseHandler.post(new Runnable() {
                 public void run() {
-                    if (mRequestMap.get(target) != url) {
+                    if (!mRequestMap.get(target).equals(url)) {
                         return;
                     }
 

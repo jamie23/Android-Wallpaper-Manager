@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_primary"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -24,25 +23,19 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50">
+        android:layout_weight="50"
+        android:layout_marginBottom="20dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btn_browse_wallpapers"
+            style="@style/MainMenuButtons"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp">
-
-            <Button
-                android:id="@+id/btn_browse_wallpapers"
-                style="@style/MainMenuButtons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/background"
-                android:padding="30dp"
-                android:text="@string/main_menu_browse_wallpapers" />
-        </RelativeLayout>
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/background"
+            android:padding="30dp"
+            android:text="@string/main_menu_browse_wallpapers" />
     </RelativeLayout>
 
     <View

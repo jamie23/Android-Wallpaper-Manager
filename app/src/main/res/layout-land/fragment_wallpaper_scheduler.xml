@@ -1,130 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_primary"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="50"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/scheduler_current_status"
+            style="@style/MainMenuTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/scheduler_status_title" />
+
+        <TextView
+            android:id="@+id/scheduler_current_query"
+            style="@style/SchedulerDetailsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/scheduler_current_theme_title" />
+
+        <TextView
+            android:id="@+id/scheduler_current_days"
+            style="@style/SchedulerDetailsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scheduler_current_days_title" />
+
+        <Button
+            android:id="@+id/btn_stop_scheduler"
+            style="@style/SwitcherMenuButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/stop_scheduler" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:background="@android:color/white" />
 
-        <LinearLayout
-            android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="50"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/MainMenuTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="50"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp"
+            android:text="@string/scheduler_new_title" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/scheduler_current_status"
-                style="@style/MainMenuTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                android:text="@string/scheduler_status_title" />
-
-            <TextView
-                android:id="@+id/scheduler_current_query"
                 style="@style/SchedulerDetailsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/scheduler_current_theme_title" />
+                android:text="@string/scheduler_new_theme_title" />
 
-            <TextView
-                android:id="@+id/scheduler_current_days"
+            <EditText
+                android:id="@+id/search_query"
                 style="@style/SchedulerDetailsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/scheduler_current_days_title" />
-
-            <Button
-                android:id="@+id/btn_stop_scheduler"
-                style="@style/SwitcherMenuButtons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/stop_scheduler" />
-
+                android:layout_gravity="end"
+                android:ems="10"
+                android:hint="@string/scheduler_theme_hint" />
         </LinearLayout>
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/white" />
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="50"
-            android:orientation="vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
+            <TextView
+                style="@style/SchedulerDetailsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/scheduler_new_days_title" />
 
-                <TextView
-                    style="@style/MainMenuTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/scheduler_new_title" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        style="@style/SchedulerDetailsText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/scheduler_new_theme_title" />
-
-                    <EditText
-                        android:id="@+id/search_query"
-                        style="@style/SchedulerDetailsText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:ems="10"
-                        android:hint="@string/scheduler_theme_hint" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        style="@style/SchedulerDetailsText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/scheduler_current_days_title" />
-
-                    <EditText
-                        android:id="@+id/days_to_switch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="5"
-                        android:hint="@string/scheduler_days_hint"
-                        android:inputType="number" />
-                </LinearLayout>
-
-                <Button
-                    android:id="@+id/btn_start_scheduler"
-                    style="@style/SwitcherMenuButtons"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/start_scheduler" />
-            </LinearLayout>
+            <EditText
+                android:id="@+id/days_to_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="5"
+                android:hint="@string/scheduler_days_hint"
+                android:inputType="number" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_start_scheduler"
+            style="@style/SwitcherMenuButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/start_scheduler" />
     </LinearLayout>
 </LinearLayout>

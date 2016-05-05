@@ -7,8 +7,7 @@ import android.support.v4.app.Fragment;
 public class SingleWallpaperActivity extends BrowseFragmentActivity {
 
     public static Intent newIntent(Context context){
-        Intent i = new Intent(context, SingleWallpaperActivity.class);
-        return i;
+        return new Intent(context, SingleWallpaperActivity.class);
     }
     @Override
     protected Fragment createFragment(){

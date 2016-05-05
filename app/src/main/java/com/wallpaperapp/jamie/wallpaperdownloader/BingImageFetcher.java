@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by Jamie on 02/03/2016.
  */
-public class BingImageFetcher {
+class BingImageFetcher {
     private static final String API_KEY = APIKey.API_KEY;
     private static final String TAG = "BingImageFetcher";
 
@@ -39,13 +39,9 @@ public class BingImageFetcher {
         try{
             ByteArrayOutputStream out = new ByteArrayOutputStream();
 
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND){
-                //The file has been deleted from the file server
-            }
-
             InputStream in = connection.getInputStream();
 
-            int bytesRead = 0;
+            int bytesRead;
             byte[] buffer = new byte[1024];
             while((bytesRead = in.read(buffer)) > 0){
                 out.write(buffer, 0, bytesRead);
@@ -79,21 +75,24 @@ public class BingImageFetcher {
         return items;
     }
 
-    private void parseItems(List<WallpaperItem> items, JSONObject jsonBody)
-        throws IOException, JSONException{
-        JSONObject dataJsonObject = jsonBody.getJSONObject("d");
-        JSONArray resultsJsonObject = dataJsonObject.getJSONArray("results");
-        JSONObject thumbnailJsonObject;
+    private void parseItems(List<WallpaperItem> items, JSONObject jsonBody) {
+        try {
+            JSONObject dataJsonObject = jsonBody.getJSONObject("d");
+            JSONArray resultsJsonObject = dataJsonObject.getJSONArray("results");
+            JSONObject thumbnailJsonObject;
 
-        for(int i = 0;i<resultsJsonObject.length();i++){
-            JSONObject wallpaperJsonObject = resultsJsonObject.getJSONObject(i);
+            for (int i = 0; i < resultsJsonObject.length(); i++) {
+                JSONObject wallpaperJsonObject = resultsJsonObject.getJSONObject(i);
 
-            thumbnailJsonObject = wallpaperJsonObject.getJSONObject("Thumbnail");
-            WallpaperItem item = new WallpaperItem();
+                thumbnailJsonObject = wallpaperJsonObject.getJSONObject("Thumbnail");
+                WallpaperItem item = new WallpaperItem();
 
-            item.setUrl(wallpaperJsonObject.getString("MediaUrl"));
-            item.setThumbnailURL(thumbnailJsonObject.getString("MediaUrl"));
-            items.add(item);
+                item.setUrl(wallpaperJsonObject.getString("MediaUrl"));
+                item.setThumbnailURL(thumbnailJsonObject.getString("MediaUrl"));
+                items.add(item);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

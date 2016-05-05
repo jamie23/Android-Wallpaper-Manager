@@ -5,7 +5,7 @@ import android.net.Uri;
 /**
  * Created by jamie on 3/4/2016.
  */
-public class WallpaperItem {
+class WallpaperItem {
     private String mUrl;
     private String mThumbnailURL;
 
@@ -26,8 +26,7 @@ public class WallpaperItem {
     }
 
     public Uri getURI(){
-        Uri uri = Uri.parse(getUrl());
-        return uri;
+        return Uri.parse(getUrl());
     }
     @Override
     public String toString(){
