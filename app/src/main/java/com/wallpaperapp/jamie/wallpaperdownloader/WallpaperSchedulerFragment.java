@@ -5,6 +5,7 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
@@ -99,9 +100,13 @@ public class WallpaperSchedulerFragment extends Fragment {
         editor.apply();
     }
 
-    private void showSnackBar(View v, String message) {
+    private void showSnackBar(View v, String msg) {
         Snackbar snackbar = Snackbar
-                .make(v, message, Snackbar.LENGTH_SHORT);
+                .make(v, msg, Snackbar.LENGTH_SHORT);
+        View view = snackbar.getView();
+        view.setBackgroundColor(Color.BLACK);
+        TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
+        tv.setBackgroundColor(Color.BLACK);
         snackbar.show();
     }
 

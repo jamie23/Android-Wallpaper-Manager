@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="WallpaperDownloaderTheme" parent="@android:style/Theme.Light">
-    <item name="android:windowBackground">@color/color_primary</item>
-</style></resources>
+    <style name="ActivitiesTheme" parent="@style/AppTheme">
+        <item name="android:background">@color/color_primary</item>
+    </style>
+</resources>

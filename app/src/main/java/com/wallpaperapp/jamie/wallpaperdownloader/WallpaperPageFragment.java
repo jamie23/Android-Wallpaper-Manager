@@ -3,6 +3,7 @@ package com.wallpaperapp.jamie.wallpaperdownloader;
 import android.app.WallpaperManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -63,14 +64,10 @@ public class WallpaperPageFragment extends Fragment{
                 WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
                 try{
                     if(wallpaperBitmap==null){
-                        Snackbar snackbar = Snackbar
-                                .make(v, R.string.wallpaper_not_loaded, Snackbar.LENGTH_SHORT);
-                        snackbar.show();
+                       showCustomSnackbar(v, getString(R.string.wallpaper_not_loaded));
                     }else{
                         wallpaperManager.setBitmap(wallpaperBitmap);
-                        Snackbar snackbar = Snackbar
-                                .make(v, R.string.wallpaper_added, Snackbar.LENGTH_LONG);
-                        snackbar.show();
+                        showCustomSnackbar(v, getString(R.string.wallpaper_added));
                     }
                 }catch(IOException ioe){
                     Log.e(TAG, "Error setting the wallpaper", ioe);
@@ -115,5 +112,15 @@ public class WallpaperPageFragment extends Fragment{
                 wallpaperView.setImageBitmap(wallpaperBitmap);
             }
         }
+    }
+
+    private void showCustomSnackbar(View v, String msg){
+        Snackbar snackbar = Snackbar
+                .make(v, msg, Snackbar.LENGTH_SHORT);
+        View view = snackbar.getView();
+        view.setBackgroundColor(Color.BLACK);
+        TextView tv = (TextView) view.findViewById(android.support.design.R.id.snackbar_text);
+        tv.setBackgroundColor(Color.BLACK);
+        snackbar.show();
     }
 }
