@@ -19,6 +19,6 @@ The images are found via [Bing's API](https://datamarket.azure.com/dataset/bing/
 - A Bing API key, these can be obtained from the link above.
 
 ## Set up
-Once you have cloned the project, simply get your API key from Bing, enter it as the string value for API_KEY under APIKey.class.
-The project then should be able to compiled and ran.
+Once you have cloned the project, simply get your API key from Bing (link above to API), enter it as the string value for API_KEY under APIKey class file.
+The project can then be compiled and ran.
 
