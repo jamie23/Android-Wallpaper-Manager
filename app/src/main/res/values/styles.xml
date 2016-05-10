@@ -14,7 +14,7 @@
     </style>
 
     <style name="MainMenuButtons" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
