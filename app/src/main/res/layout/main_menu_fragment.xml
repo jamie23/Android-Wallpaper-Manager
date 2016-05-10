@@ -68,7 +68,7 @@
             android:layout_gravity="center_horizontal"
             android:paddingTop="15dp"
             android:text="@string/main_menu_scheduler_status"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/current_theme"
