@@ -61,6 +61,7 @@ public class WallpaperPageFragment extends Fragment{
         btnSetWallpaper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showCustomSnackbar(v, getString(R.string.wallpaper_added));
                 WallpaperManager wallpaperManager = WallpaperManager.getInstance(getActivity());
                 try{
                     if(wallpaperBitmap==null){

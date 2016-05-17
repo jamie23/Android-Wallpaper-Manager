@@ -81,6 +81,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:ems="10"
+                android:textColorHint="@android:color/white"
+                android:backgroundTint="@android:color/white"
                 android:hint="@string/scheduler_theme_hint" />
         </LinearLayout>
 
@@ -99,6 +101,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="5"
+                android:textColorHint="@android:color/white"
+                android:backgroundTint="@android:color/white"
                 android:hint="@string/scheduler_days_hint"
                 android:inputType="number" />
         </LinearLayout>
