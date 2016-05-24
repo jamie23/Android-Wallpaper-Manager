@@ -57,7 +57,7 @@ public class BrowseWallpaperFragment extends Fragment {
 
         mWallpaperDownloader = new WallpaperDownloader<>(responseHandler);
         mWallpaperDownloader.setWallpaperDownloadListener(
-                new WallpaperDownloader.WallpaperDownloadListener<WallpaperHolder>() {
+                 new WallpaperDownloader.WallpaperDownloadListener<WallpaperHolder>() {
                     @Override
                     public void onWallpaperDownloadListener(WallpaperHolder wallpaperHolder, Bitmap bitmap) {
                         Drawable drawable = new BitmapDrawable(getResources(), bitmap);
@@ -130,7 +130,9 @@ public class BrowseWallpaperFragment extends Fragment {
 
         @Override
         protected void onPostExecute(List<WallpaperItem> items) {
-            mWallpaperRecyclerView.setAdapter(new WallpaperAdapter(items));
+            if(isAdded()){
+                mWallpaperRecyclerView.setAdapter(new WallpaperAdapter(items));
+            }
         }
     }
 

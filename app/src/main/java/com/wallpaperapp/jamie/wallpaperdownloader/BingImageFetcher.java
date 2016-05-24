@@ -57,7 +57,8 @@ class BingImageFetcher {
         List<WallpaperItem> items = new ArrayList<>();
         try{
             String encodedQuery =  Uri.encode(searchQuery);
-            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + encodedQuery + "%27&ImageFilters=%27Size%3ALarge%27&$format=json").toString();
+//            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + encodedQuery + "%27&ImageFilters=%27Size%3ALarge%27&$format=json").toString();
+            String url = Uri.parse("https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27" + encodedQuery + "%27&ImageFilters=%27Size%3AWidth%3A1920%2BSize%3AHeight%3A1920%27&$format=json").toString();
 
             //getUrlBytes returns bytes which can be casted to String to see the JSON result
             String jsonString =  new String(getUrlBytes(url, true));

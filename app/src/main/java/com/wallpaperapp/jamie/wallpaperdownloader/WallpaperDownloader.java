@@ -90,6 +90,8 @@ class WallpaperDownloader<T> extends HandlerThread {
 
             mResponseHandler.post(new Runnable() {
                 public void run() {
+                    Log.d(TAG, "URL: " + url);
+                    Log.d(TAG, "Target = " + target.toString());
                     if (!mRequestMap.get(target).equals(url)) {
                         return;
                     }
