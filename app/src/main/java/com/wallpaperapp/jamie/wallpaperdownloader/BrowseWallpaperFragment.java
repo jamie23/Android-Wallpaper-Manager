@@ -42,14 +42,8 @@ public class BrowseWallpaperFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
         setHasOptionsMenu(true);
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        updateWallpapers();
-
-        /*
+               /*
             Passing a handler through to downloader so we update
             view in this thread (UI) when image is downloaded.
         */
@@ -57,7 +51,7 @@ public class BrowseWallpaperFragment extends Fragment {
 
         mWallpaperDownloader = new WallpaperDownloader<>(responseHandler);
         mWallpaperDownloader.setWallpaperDownloadListener(
-                 new WallpaperDownloader.WallpaperDownloadListener<WallpaperHolder>() {
+                new WallpaperDownloader.WallpaperDownloadListener<WallpaperHolder>() {
                     @Override
                     public void onWallpaperDownloadListener(WallpaperHolder wallpaperHolder, Bitmap bitmap) {
                         Drawable drawable = new BitmapDrawable(getResources(), bitmap);
@@ -65,9 +59,18 @@ public class BrowseWallpaperFragment extends Fragment {
                     }
                 }
         );
+
         mWallpaperDownloader.start();
         mWallpaperDownloader.getLooper();
         Log.i(TAG, "background thread started");
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        updateWallpapers();
+
+
 
         View v = inflater.inflate(R.layout.fragment_wallpaper, container, false);
         mWallpaperRecyclerView = (RecyclerView) v.findViewById(R.id.fragment_wallpaper_recycler_view);

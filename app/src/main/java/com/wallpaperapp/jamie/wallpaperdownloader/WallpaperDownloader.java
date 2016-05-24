@@ -58,7 +58,9 @@ class WallpaperDownloader<T> extends HandlerThread {
     public void queueWallpaper(T target, String url){
         Log.i(TAG, "URL: " + url);
 
-        if(url!=null){
+        if(url==null) {
+            mRequestMap.remove(target);
+        }else{
             mRequestMap.put(target,url);
             mRequestHandler.obtainMessage(MESSAGE_DOWNLOAD, target)
                     .sendToTarget();
@@ -92,7 +94,7 @@ class WallpaperDownloader<T> extends HandlerThread {
                 public void run() {
                     Log.d(TAG, "URL: " + url);
                     Log.d(TAG, "Target = " + target.toString());
-                    if (!mRequestMap.get(target).equals(url)) {
+                    if (mRequestMap.get(target)!=url) {
                         return;
                     }
 
