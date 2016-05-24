@@ -1,5 +1,6 @@
 package com.wallpaperapp.jamie.wallpaperdownloader;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -49,13 +50,17 @@ public class BrowseWallpaperFragment extends Fragment {
         */
         Handler responseHandler = new Handler();
 
+
         mWallpaperDownloader = new WallpaperDownloader<>(responseHandler);
         mWallpaperDownloader.setWallpaperDownloadListener(
                 new WallpaperDownloader.WallpaperDownloadListener<WallpaperHolder>() {
                     @Override
                     public void onWallpaperDownloadListener(WallpaperHolder wallpaperHolder, Bitmap bitmap) {
-                        Drawable drawable = new BitmapDrawable(getResources(), bitmap);
-                        wallpaperHolder.bindDrawable(drawable);
+                        Activity activity = getActivity();
+                        if(activity != null){
+                            Drawable drawable = new BitmapDrawable(getResources(), bitmap);
+                            wallpaperHolder.bindDrawable(drawable);
+                        }
                     }
                 }
         );
