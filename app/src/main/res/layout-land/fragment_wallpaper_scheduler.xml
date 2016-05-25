@@ -81,8 +81,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:backgroundTint="@android:color/white"
                 android:ems="10"
-                android:hint="@string/scheduler_theme_hint" />
+                android:hint="@string/scheduler_theme_hint"
+                android:textColorHint="@android:color/white"/>
         </LinearLayout>
 
         <LinearLayout
@@ -99,9 +101,12 @@
                 android:id="@+id/days_to_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
                 android:ems="5"
                 android:hint="@string/scheduler_days_hint"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white" />
         </LinearLayout>
 
         <Button
