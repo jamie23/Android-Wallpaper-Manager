@@ -44,7 +44,7 @@ public class BrowseWallpaperFragment extends Fragment {
         setRetainInstance(true);
         setHasOptionsMenu(true);
 
-               /*
+       /*
             Passing a handler through to downloader so we update
             view in this thread (UI) when image is downloaded.
         */
@@ -74,8 +74,6 @@ public class BrowseWallpaperFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         updateWallpapers();
-
-
 
         View v = inflater.inflate(R.layout.fragment_wallpaper, container, false);
         mWallpaperRecyclerView = (RecyclerView) v.findViewById(R.id.fragment_wallpaper_recycler_view);
